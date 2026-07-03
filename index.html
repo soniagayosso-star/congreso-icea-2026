@@ -1,86 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>11° Congreso Internacional ICEA 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f5f6f8; --panel:#ffffff; --ink:#151219; --muted:#6d6873; --soft:#e9e7ec;
-      --red:#c8102e; --red2:#8b001d; --wine:#540014; --gold:#b9851f; --blue:#164a7a; --green:#0b7a75; --orange:#e56b00;
-      --shadow:0 24px 55px -32px rgba(30,18,30,.42); --shadow2:0 12px 30px -24px rgba(30,18,30,.32);
-      --radius:26px;
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-    body::before{content:"";position:fixed;inset:0;background:radial-gradient(800px 400px at 72% -10%,rgba(200,16,46,.12),transparent 60%),radial-gradient(520px 320px at 8% 80%,rgba(22,74,122,.08),transparent 64%);pointer-events:none;z-index:-1}
-    button,input{font:inherit}.app{display:grid;grid-template-columns:292px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border-right:1px solid var(--soft);padding:22px 18px;display:flex;flex-direction:column;gap:20px}.brand{display:flex;gap:13px;align-items:center;padding:14px;border-radius:22px;background:linear-gradient(135deg,var(--red),var(--wine));color:#fff;box-shadow:var(--shadow2)}.seal{width:54px;height:54px;border-radius:16px;background:#fff;color:var(--red);display:grid;place-items:center;font-size:23px;font-weight:900}.brand b{display:block;font-size:16px}.brand span{display:block;font-size:12px;opacity:.86}.nav{display:grid;gap:8px}.nav button{border:0;text-align:left;background:transparent;color:#45404b;padding:13px 14px;border-radius:15px;display:flex;gap:11px;align-items:center;font-weight:700;cursor:pointer}.nav button:hover{background:#f0f1f4}.nav button.active{background:linear-gradient(135deg,var(--red),var(--wine));color:#fff}.side-card{margin-top:auto;border-radius:24px;background:#fff;border:1px solid var(--soft);padding:20px;box-shadow:var(--shadow2)}.side-card img{width:100%;display:block;object-fit:contain;margin:0 auto 18px;max-height:120px}.side-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.main{padding:22px 26px 42px;min-width:0}.topbar{display:flex;gap:14px;align-items:center;margin-bottom:20px}.hamb{display:none}.search{flex:1;background:#fff;border:1px solid var(--soft);border-radius:18px;padding:0 16px;display:flex;align-items:center;gap:10px;height:56px;box-shadow:var(--shadow2)}.search input{border:0;outline:0;width:100%;background:transparent;color:var(--ink)}.official{white-space:nowrap;background:#151219;color:#fff;border-radius:999px;padding:14px 20px;font-weight:800;font-size:14px}.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px}.hero{position:relative;min-height:360px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);isolation:isolate;background:#111}.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.62) 42%,rgba(0,0,0,.18) 100%);z-index:-1}.hero-content{padding:42px;max-width:650px;color:#fff}.hero-logo{width:174px;background:rgba(255,255,255,.93);border-radius:16px;padding:12px;margin-bottom:26px}.hero h1{font-size:54px;line-height:.98;margin:0 0 14px;letter-spacing:-.055em;font-weight:900}.hero p{font-size:18px;line-height:1.55;margin:0 0 24px;color:rgba(255,255,255,.88)}.chips{display:flex;gap:12px;flex-wrap:wrap}.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);font-weight:800;color:#fff}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 28px}.stat{background:#fff;border:1px solid var(--soft);border-radius:22px;padding:20px;box-shadow:var(--shadow2);min-height:110px}.stat b{font-size:34px;letter-spacing:-.04em}.stat span{display:block;text-transform:uppercase;font-size:12px;color:var(--muted);font-weight:900;letter-spacing:.06em}.stat.feature{background:linear-gradient(135deg,var(--red),var(--wine));color:#fff}.stat.feature span{color:rgba(255,255,255,.8)}.section-title{margin:28px 0 16px}.kicker{color:var(--red);font-size:12px;text-transform:uppercase;letter-spacing:.22em;font-weight:900}.section-title h2{margin:6px 0 8px;font-size:31px;letter-spacing:-.04em}.section-title p{margin:0;color:var(--muted);font-size:16px}.today{background:#fff;border:1px solid var(--soft);border-radius:26px;box-shadow:var(--shadow2);overflow:hidden}.day-tabs{display:flex;background:#fafafa;border-bottom:1px solid var(--soft)}.day-tabs button{flex:1;border:0;background:transparent;padding:16px 12px;font-weight:900;color:#555;cursor:pointer}.day-tabs button.active{background:var(--red);color:#fff}.agenda-row{display:grid;grid-template-columns:90px 1fr auto;gap:18px;padding:19px 22px;border-bottom:1px solid #f0eef2;align-items:center}.agenda-row:last-child{border-bottom:0}.time{font-weight:900;font-size:18px}.agenda-row h3{margin:0 0 4px;font-size:17px}.agenda-row p{margin:0;color:var(--muted);font-size:14px}.place{color:#555;font-size:13px;font-weight:800}.rail{display:grid;gap:20px}.rail-card{background:#fff;border:1px solid var(--soft);border-radius:24px;padding:22px;box-shadow:var(--shadow2)}.rail-card h3{margin:0 0 18px;font-size:19px;letter-spacing:-.02em}.notice{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:12px 0;border-top:1px solid #f0eef2}.notice:first-of-type{border-top:0}.icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:900}.notice b{display:block}.notice span,.rail-card p{color:var(--muted);font-size:14px;line-height:1.45}.mini-search{display:flex;height:46px;border:1px solid var(--soft);border-radius:15px;overflow:hidden;background:#fafafa}.mini-search input{flex:1;border:0;background:transparent;padding:0 14px;outline:0}.mini-search button{border:0;background:#fff;padding:0 14px;cursor:pointer}.hint{margin-top:14px;background:#ecf7f6;color:#0a5551;border-radius:16px;padding:14px;font-size:13px}.poster-hint{background:#fff6ec;color:#814000}.event-grid,.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.event-card,.content-card{background:#fff;border:1px solid var(--soft);border-radius:24px;box-shadow:var(--shadow2);overflow:hidden}.event-card img{height:170px;width:100%;object-fit:cover}.event-card .body,.content-card{padding:22px}.event-card small{display:inline-flex;background:#f7e7eb;color:var(--red);padding:6px 10px;border-radius:999px;font-weight:900;margin-bottom:12px}.event-card h3,.content-card h3{margin:0 0 8px}.event-card p,.content-card p{margin:0;color:var(--muted);line-height:1.5}.program-tools{display:flex;gap:12px;margin:0 0 16px}.program-tools input{height:52px;border-radius:16px;border:1px solid var(--soft);padding:0 16px;flex:1}.filter{height:52px;border:1px solid var(--soft);border-radius:16px;background:#fff;padding:0 14px;font-weight:800}.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}.work{background:#fff;border:1px solid var(--soft);border-left:5px solid var(--red);border-radius:20px;padding:18px;box-shadow:var(--shadow2)}.work .code{color:var(--red);font-size:12px;font-weight:900}.work h3{font-size:16px;margin:8px 0}.work p{margin:0;color:var(--muted);font-size:14px}.download{display:inline-flex;margin-top:14px;padding:10px 14px;background:var(--red);color:#fff;text-decoration:none;border-radius:12px;font-weight:900}.view{display:none}.view.active{display:block}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-photo{min-height:310px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow2)}.info-photo img{width:100%;height:100%;object-fit:cover}.foot{margin-top:30px;color:var(--muted);font-size:13px;text-align:center}.empty{background:#fff;border:1px dashed #d9d5dc;border-radius:20px;padding:24px;color:var(--muted)}
-    @media(max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:fixed;z-index:10;left:-310px;transition:.25s}.sidebar.open{left:0}.hamb{display:block;border:1px solid var(--soft);background:#fff;border-radius:15px;width:54px;height:54px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.event-grid{grid-template-columns:1fr}.main{padding:18px}.official{display:none}}
-    @media(max-width:720px){.hero{min-height:460px}.hero-content{padding:28px}.hero h1{font-size:38px}.stats{grid-template-columns:1fr 1fr}.agenda-row{grid-template-columns:1fr}.event-grid,.cards,.info-grid{grid-template-columns:1fr}.side-card img{max-height:80px}}
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="app">
   <aside class="sidebar" id="sidebar">
-    <div class="brand"><div class="seal">11°</div><div><b>Congreso ICEA 2026</b><span>Sitio oficial del programa</span></div></div>
-    <nav class="nav" id="nav">
-      <button class="active" data-view="inicio">⌂ Inicio</button><button data-view="programa">▦ Programa</button><button data-view="agenda">☆ Mi Agenda</button><button data-view="eventos">◉ Eventos destacados</button><button data-view="carteles">▣ Carteles</button><button data-view="constancias">◎ Constancias</button><button data-view="info">ⓘ Información</button>
+    <div class="brand-card">
+      <div class="badge-11">11°</div>
+      <div><strong>Congreso ICEA<br>2026</strong><span>Sitio oficial del programa</span></div>
+    </div>
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="nav-link active" data-view="inicio">⌂ Inicio</button>
+      <button class="nav-link" data-view="programa">▦ Programa</button>
+      <button class="nav-link" data-view="agenda">☆ Mi Agenda <span id="agendaCount" class="mini-count"></span></button>
+      <button class="nav-link" data-view="eventos">◉ Eventos destacados</button>
+      <button class="nav-link" data-view="carteles">▣ Carteles</button>
+      <button class="nav-link" data-view="constancias">◎ Constancias</button>
+      <button class="nav-link" data-view="info">ⓘ Información</button>
     </nav>
-    <div class="side-card"><img src="assets/img/logo-icea-uaeh.png" alt="Logo ICEA UAEH"><p><b>Investigación que transforma.</b><br>Innovación que conecta.</p></div>
+    <div class="institution-card">
+      <img src="assets/logos/logo-icea-uaeh.png" alt="Logo ICEA UAEH" />
+      <p>Investigación que transforma.<br>Innovación que conecta.</p>
+    </div>
   </aside>
+
+  <div class="overlay" id="overlay"></div>
+
   <main class="main">
-    <div class="topbar"><button class="hamb" onclick="sidebar.classList.toggle('open')">☰</button><label class="search">⌕<input id="globalSearch" placeholder="Buscar ponencia, autor, institución o palabra clave..."></label><div class="official">Sitio Oficial</div></div>
-
-    <section id="inicio" class="view active">
-      <div class="grid">
-        <div>
-          <div class="hero"><img src="assets/img/icea-jardin.png" alt="Edificio ICEA"><div class="hero-content"><img class="hero-logo" src="assets/img/logo-icea-uaeh.png" alt="Logo ICEA UAEH"><h1>11° Congreso Internacional ICEA 2026</h1><p>Programa académico, eventos destacados, carteles y constancias en una sola plataforma.</p><div class="chips"><span class="chip">23, 24 y 25 de septiembre</span><span class="chip">Modalidad híbrida</span><span class="chip">ICEA · UAEH</span></div></div></div>
-          <div class="stats"><div class="stat feature"><b id="daysLeft">82</b><span>días para el congreso</span></div><div class="stat"><b>135</b><span>trabajos</span></div><div class="stat"><b>5</b><span>mesas</span></div><div class="stat"><b>97</b><span>ponencias</span></div><div class="stat"><b>38</b><span>carteles</span></div></div>
-          <div class="section-title"><div class="kicker">Agenda de hoy</div><h2>Actividad del Congreso</h2><p>Inicio ejecutivo sin repetir la navegación. Aquí se muestra lo más importante.</p></div>
-          <div class="today"><div class="day-tabs"><button class="active" onclick="showDay(1,this)">Miércoles 23</button><button onclick="showDay(2,this)">Jueves 24</button><button onclick="showDay(3,this)">Viernes 25</button></div><div id="agendaList"></div></div>
-        </div>
-        <aside class="rail"><div class="rail-card"><h3>Avisos importantes</h3><div class="notice"><div class="icon" style="background:var(--red)">!</div><div><b>Bienvenidos al 11° Congreso</b><span>Te esperamos los días 23, 24 y 25 de septiembre en el ICEA.</span></div></div><div class="notice"><div class="icon" style="background:var(--blue)">⌚</div><div><b>Registro y acreditación</b><span>El registro abre a las 8:30 el primer día en el vestíbulo principal.</span></div></div><div class="notice"><div class="icon" style="background:#4d3370">▣</div><div><b>Modalidad híbrida</b><span>Hay sesiones presenciales y virtuales cada día. Revisa tu horario en Programa.</span></div></div></div><div class="rail-card"><h3>Descarga tu constancia</h3><div class="mini-search"><input id="quickConstancia" placeholder="Nombre, apellido o código..."><button onclick="goView('constancias')">⌕</button></div><div class="hint">Las constancias estarán disponibles para descarga una vez finalizado el congreso.</div></div><div class="rail-card"><h3>Carteles del Congreso</h3><div class="mini-search"><input id="quickCartel" placeholder="Código, autor o palabra clave..."><button onclick="goView('carteles')">⌕</button></div><div class="hint poster-hint">Sube los carteles en la carpeta <b>carteles/</b> usando el código del trabajo.</div></div></aside>
-      </div>
-    </section>
-
-    <section id="programa" class="view"><div class="section-title"><div class="kicker">Programa académico</div><h2>Consulta por día, mesa o autor</h2><p>Vista compacta para asistentes y organizadores.</p></div><div class="program-tools"><input id="programSearch" placeholder="Buscar en el programa..." oninput="renderWorks()"><select id="programFilter" class="filter" onchange="renderWorks()"><option value="todos">Todos</option><option value="Ponencia">Ponencias</option><option value="Cartel">Carteles</option><option value="Presencial">Presencial</option><option value="Virtual">Virtual</option></select></div><div class="work-grid" id="workGrid"></div></section>
-
-    <section id="agenda" class="view"><div class="section-title"><div class="kicker">Mi Agenda</div><h2>Sesiones guardadas</h2><p>Esta sección queda lista para activar favoritos durante el congreso.</p></div><div class="empty">Por ahora se mostrará aquí la agenda personalizada de cada asistente.</div></section>
-
-    <section id="eventos" class="view"><div class="section-title"><div class="kicker">Eventos destacados</div><h2>Tres actividades centrales</h2><p>Una conferencia magistral, el Foro de Turismo y el Panel de Economía.</p></div><div class="event-grid"><article class="event-card"><img src="assets/img/banner-congreso.jpg" alt="Conferencia Magistral"><div class="body"><small>Conferencia Magistral</small><h3>Conferencia Magistral</h3><p>La actividad académica central del Congreso. Agrega aquí nombre, semblanza, horario y lugar.</p></div></article><article class="event-card"><img src="assets/img/icea-edificio-luces.png" alt="Foro de Turismo"><div class="body"><small>Foro de Turismo</small><h3>Agenda digital e IA para rediseñar el turismo</h3><p>Espacio de diálogo sobre innovación, tecnología y tendencias del sector turístico.</p></div></article><article class="event-card"><img src="assets/img/foto-icea-acceso.jpeg" alt="Panel de Economía"><div class="body"><small>Panel de Economía</small><h3>Panel de Economía</h3><p>Análisis y reflexión sobre el contexto económico actual desde una mirada multidisciplinaria.</p></div></article></div></section>
-
-    <section id="carteles" class="view"><div class="section-title"><div class="kicker">Carteles</div><h2>Consulta carteles académicos</h2><p>Sube los archivos PDF o imagen en la carpeta <b>carteles/</b>.</p></div><div class="program-tools"><input id="posterSearch" placeholder="Buscar por código, autor o palabra clave..." oninput="renderPosters()"></div><div class="work-grid" id="posterGrid"></div></section>
-
-    <section id="constancias" class="view"><div class="section-title"><div class="kicker">Constancias</div><h2>Descarga por nombre o código</h2><p>Cuando estén listas, sube los PDF en <b>constancias/ponencias/</b> y <b>constancias/carteles/</b>.</p></div><div class="program-tools"><input id="certSearch" placeholder="Buscar nombre, apellido, código o institución..." oninput="renderCertificates()"></div><div class="work-grid" id="certGrid"></div></section>
-
-    <section id="info" class="view"><div class="section-title"><div class="kicker">Información útil</div><h2>Sede, acceso y recomendaciones</h2><p>Datos breves para asistentes, ponentes y visitantes.</p></div><div class="info-grid"><div class="info-photo"><img src="assets/img/foto-icea-acceso.jpeg" alt="Acceso ICEA"></div><div class="cards"><div class="content-card"><h3>Sede</h3><p>Instituto de Ciencias Económico Administrativas, UAEH.</p></div><div class="content-card"><h3>Registro</h3><p>Vestíbulo principal. Recomendamos llegar con anticipación.</p></div><div class="content-card"><h3>Modalidad</h3><p>El Congreso tendrá actividades presenciales y virtuales.</p></div></div></div></section>
-    <div class="foot">11° Congreso Internacional de Investigación en Ciencias Económico-Administrativas · ICEA UAEH · 2026</div>
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <label class="global-search"><span>⌕</span><input id="globalSearch" placeholder="Buscar ponencia, autor, institución o palabra clave…" /></label>
+      <span class="site-pill">Sitio Oficial</span>
+    </header>
+    <section id="app" class="view"></section>
+    <footer class="footer">11° Congreso Internacional de Investigación en Ciencias Económico-Administrativas · ICEA UAEH · 2026</footer>
   </main>
-</div>
-<script>
-const agenda={1:[['09:00','Conferencia Magistral','Evento inaugural','Auditorio ICEA'],['11:00','Mesa 1','Competitividad, emprendimiento y desarrollo empresarial','Salas simultáneas'],['12:00','Mesa 3','Sostenibilidad y desarrollo territorial','Aula Dinámica Admón. 1'],['15:00','Mesa 4','Tecnologías emergentes e innovación','Sala Yaca']],2:[['09:00','Foro de Turismo','Agenda digital e IA para rediseñar el turismo','Auditorio ICEA'],['12:15','Carteles académicos','Exposición de carteles por mesa','Galería ICEA'],['15:00','Mesas temáticas','Sesiones presenciales y virtuales','Salas simultáneas']],3:[['09:00','Panel de Economía','Tendencias ante la reconfiguración global','Auditorio ICEA'],['11:00','Mesas temáticas','Presentaciones finales','Salas simultáneas'],['13:00','Cierre académico','Conclusiones y avisos','Auditorio ICEA']]};
-const works=[
-{code:'PON-001',type:'Ponencia',mode:'Presencial',title:'Residuos, diversificación exportadora y oportunidades de suprarreciclaje',author:'María Concepción García Pérez',table:'Mesa 3',place:'Aula Dinámica Admón. 1'},
-{code:'PON-002',type:'Ponencia',mode:'Presencial',title:'Online Travel Agencies: una mirada estratégica desde la vigilancia tecnológica',author:'Melissa Areli Lucio Deanda',table:'Mesa 4',place:'Sala Yaca'},
-{code:'CAR-003',type:'Cartel',mode:'Presencial',title:'Producción del maguey pulquero en la región centro de México',author:'Juan Jesús Solis Muñoz',table:'Mesa 3',place:'Galería ICEA'},
-{code:'PON-007',type:'Ponencia',mode:'Presencial',title:'La digitalización y la sostenibilidad como ejes estratégicos del comercio internacional',author:'María Aline Manzo Martínez',table:'Mesa 4',place:'Sala Yaca'},
-{code:'PON-008',type:'Ponencia',mode:'Presencial',title:'El comercio electrónico y sus efectos en Asia-Pacífico',author:'Enrique Guardado Ibarra',table:'Mesa 5',place:'Audiovisual de Mercadotecnia'},
-{code:'PON-015',type:'Ponencia',mode:'Presencial',title:'Mujeres y trabajo artesanal en Tenango de Doria',author:'Tania Elizabeth Ceballos Álvarez',table:'Mesa 3',place:'Aula Dinámica Admón. 1'}];
-function goView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));sidebar.classList.remove('open');window.scrollTo(0,0)}
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>goView(b.dataset.view));
-function showDay(day,btn){document.querySelectorAll('.day-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('agendaList').innerHTML=agenda[day].map(r=>`<div class="agenda-row"><div class="time">${r[0]}</div><div><h3>${r[1]}</h3><p>${r[2]}</p></div><div class="place">${r[3]}</div></div>`).join('')}
-showDay(1,document.querySelector('.day-tabs button'));
-function card(w,cert=false){let href= w.type==='Cartel'?`carteles/${w.code}.pdf`:`constancias/ponencias/${w.code}.pdf`;return `<article class="work"><div class="code">${w.code} · ${w.type} · ${w.mode}</div><h3>${w.title}</h3><p><b>${w.author}</b><br>${w.table} · ${w.place}</p>${cert?`<a class="download" href="${href}" download>Descargar PDF</a>`:''}</article>`}
-function renderWorks(){const q=(programSearch.value||'').toLowerCase(),f=programFilter.value;workGrid.innerHTML=works.filter(w=>(f==='todos'||w.type===f||w.mode===f)&&JSON.stringify(w).toLowerCase().includes(q)).map(w=>card(w)).join('')||'<div class="empty">No se encontraron resultados.</div>'}
-function renderPosters(){const q=(posterSearch.value||'').toLowerCase();posterGrid.innerHTML=works.filter(w=>w.type==='Cartel'&&JSON.stringify(w).toLowerCase().includes(q)).map(w=>`<article class="work"><div class="code">${w.code} · Cartel</div><h3>${w.title}</h3><p><b>${w.author}</b><br>${w.table}</p><a class="download" href="carteles/${w.code}.pdf" download>Ver cartel</a></article>`).join('')||'<div class="empty">Aún no hay carteles cargados o no hay coincidencias.</div>'}
-function renderCertificates(){const q=(certSearch.value||'').toLowerCase();certGrid.innerHTML=works.filter(w=>JSON.stringify(w).toLowerCase().includes(q)).map(w=>card(w,true)).join('')||'<div class="empty">Busca por nombre, código o institución.</div>'}
-renderWorks();renderPosters();renderCertificates();
-const start=new Date('2026-09-23T00:00:00'); const today=new Date(); const days=Math.max(0,Math.ceil((start-today)/86400000)); daysLeft.textContent=days;
-globalSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){programSearch.value=globalSearch.value;goView('programa');renderWorks()}});
-quickConstancia.addEventListener('keydown',e=>{if(e.key==='Enter'){certSearch.value=quickConstancia.value;goView('constancias');renderCertificates()}});
-quickCartel.addEventListener('keydown',e=>{if(e.key==='Enter'){posterSearch.value=quickCartel.value;goView('carteles');renderPosters()}});
-</script>
+
+  <dialog id="detailDialog" class="dialog"><button class="dialog-close" onclick="closeDialog()">×</button><div id="dialogContent"></div></dialog>
+  <script src="app.js"></script>
 </body>
 </html>

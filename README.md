@@ -1,15 +1,26 @@
 # 11° Congreso Internacional ICEA 2026
 
-Sitio oficial del programa académico del 11° Congreso Internacional de Investigación en Ciencias Económico-Administrativas.
+Sitio oficial del programa académico del Congreso ICEA.
 
-## Estructura rápida
+## Archivos principales
 
-- `index.html`: dashboard principal.
-- `assets/img/`: logos e imágenes del ICEA.
-- `carteles/`: subir carteles en PDF usando el código del trabajo como nombre. Ejemplo: `CAR-003.pdf`.
-- `constancias/ponencias/`: subir constancias de ponencias.
-- `constancias/carteles/`: subir constancias de carteles.
+- `index.html`: entrada principal del sitio.
+- `styles.css`: diseño visual.
+- `app.js`: navegación, filtros, buscador y Mi Agenda.
+- `data/programa.json`: datos del programa, carteles y constancias.
+- `assets/`: logos e imágenes institucionales.
+- `carteles/`: subir aquí los carteles en PDF. Recomendado: `CAR-003.pdf`.
+- `constancias/ponencias/`: constancias de ponencias.
+- `constancias/carteles/`: constancias de carteles.
 
-## Publicación
+## Publicación en Netlify
 
-Netlify publica automáticamente desde la rama `main`.
+Como es HTML/CSS/JS puro:
+
+- Build command: vacío
+- Publish directory: vacío
+- Branch: main
+
+## Mi Agenda
+
+Funciona con LocalStorage del navegador. Cada asistente puede guardar actividades sin crear cuenta.
