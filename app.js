@@ -24,7 +24,7 @@ async function boot(){
   DATA.trabajos = (DATA.trabajos||[]).map(t=>({
     ...t,
     cartelPdf: t.cartelPdf || `carteles/${t.codigo}.pdf`,
-    constanciaPdf: t.constanciaPdf || `constancias/${t.tipo==='Cartel'?'carteles':'ponencias'}/${safeName(t.presenta||t.codigo)}.pdf`,
+    constanciaPdf: t.constanciaPdf || `constancias/${t.tipo==='Cartel'?'carteles':'ponencias'}/${t.codigo}.pdf`,
     semblanza: t.semblanza || `Semblanza pendiente de captura para ${t.presenta||'la persona ponente'}. Aquí se podrá incorporar una breve trayectoria académica/profesional de quien presenta la ponencia.`
   }));
   if(!DATA.constancias || !DATA.constancias.length){
@@ -96,7 +96,7 @@ function noticesCard(){return `<div class="side-card"><h3>Avisos importantes</h3
   <div class="notice"><i>▣</i><div><b>Modalidad híbrida</b><p>Hay sesiones presenciales y virtuales cada día. Revisa tu horario en Programa.</p></div></div>
   <div class="notice"><i>✓</i><div><b>Constancias</b><p>Se habilitarán una vez finalizado el congreso.</p></div></div>
 </div>`}
-function croquisMini(){return `<div class="side-card croquis-card"><h3>Croquis ICEA</h3><img src="assets/images/croquis-icea.png" alt="Croquis ICEA"><button class="btn" style="width:100%;justify-content:center;margin-top:14px" onclick="go('info')">Ver mapa y sedes →</button></div>`}
+function croquisMini(){return `<div class="side-card croquis-card map-preview-card"><h3>Croquis ICEA</h3><p>Consulta sedes, accesos, aulas y espacios del instituto en pantalla completa.</p><div class="map-preview"><img src="assets/images/croquis-icea.png" alt="Croquis ICEA" onerror="this.closest('.map-preview').classList.add('map-error')"><span>Mapa ICEA</span></div><div class="card-actions"><button class="small-btn" onclick="openMap()">Abrir mapa interactivo</button><button class="small-btn" onclick="go('info')">Ver sedes</button></div></div>`}
 function constanciaMini(){return `<div class="side-card"><h3>Descarga tu constancia</h3><div class="mini-search"><input placeholder="Nombre, apellido o código…" onkeydown="if(event.key==='Enter'){filters.q=this.value;go('constancias')}"><button onclick="filters.q=this.previousElementSibling.value;go('constancias')">⌕</button></div><div class="note">Sube los PDF en <b>constancias/ponencias</b> o <b>constancias/carteles</b> siguiendo el README.</div></div>`}
 function cartelesMini(){return `<div class="side-card"><h3>Carteles del congreso</h3><div class="mini-search"><input placeholder="Código, autor o palabra clave…" onkeydown="if(event.key==='Enter'){filters.q=this.value;go('carteles')}"><button onclick="filters.q=this.previousElementSibling.value;go('carteles')">⌕</button></div><button class="btn" style="width:100%;justify-content:center;margin-top:14px" onclick="go('carteles')">Ver todos los carteles →</button></div>`}
 function filterHeader(title,lead){
@@ -136,7 +136,7 @@ function renderConstancias(){
   const shown=items.slice(0,96);
   return `<div class="section-kicker">Constancias</div><h1 class="section-title">Busca y descarga constancias</h1><p class="section-lead">Escribe nombre, apellido o código. Para evitar errores, respeta la nomenclatura indicada en el README.</p><div class="toolbar"><input data-focus id="constanciaSearch" value="${esc(filters.q)}" placeholder="Buscar por nombre, apellido o código…" oninput="filters.q=this.value;delayedRender()"></div><div class="result-summary">${items.length} resultado(s). ${items.length>shown.length?'Mostrando los primeros '+shown.length+'. Refina la búsqueda para ver menos.':''}</div>${shown.length?`<div class="grid">${shown.map(c=>`<article class="card work-card"><div class="meta">${c.tipo}</div><h3>${c.nombre}</h3><p>${(c.codigos||[]).slice(0,5).join(', ')}</p><div class="status ${c.disponible?'ok':'pending'}">${c.disponible?'Disponible':'Pendiente de subir PDF'}</div><div class="card-actions"><a class="small-btn" href="${c.pdf}" target="_blank">Descargar PDF</a></div></article>`).join('')}</div>`:'<div class="empty">No hay constancias con esa búsqueda.</div>'}`;
 }
-function renderInfo(){ return `<div class="section-kicker">Información</div><h1 class="section-title">Sede, croquis y orientación</h1><p class="section-lead">El croquis ayuda a identificar edificios, accesos y espacios del Congreso.</p><div class="info-grid"><div class="card" style="padding:24px"><img class="croquis-main" src="assets/images/croquis-icea.png" alt="Croquis ICEA"><div class="map-legend">${legendItems()}</div></div><div class="card" style="padding:24px"><img class="info-img" src="assets/images/acceso-icea.jpeg" alt="Acceso principal ICEA"><h2>Sede</h2><p>Instituto de Ciencias Económico-Administrativas, UAEH. San Agustín Tlaxiaca, Hidalgo.</p><p><b>Registro:</b> vestíbulo principal.<br><b>Modalidad:</b> híbrida.<br><b>Fechas:</b> 23, 24 y 25 de septiembre de 2026.</p><h2>Operación rápida</h2><p>• Revisa tu horario en Programa.<br>• Guarda ponencias en Mi Agenda.<br>• Sube carteles en <b>carteles/</b>.<br>• Sube constancias en <b>constancias/</b>.</p></div></div>`; }
+function renderInfo(){ return `<div class="section-kicker">Información</div><h1 class="section-title">Sede, croquis y orientación</h1><p class="section-lead">El croquis ayuda a identificar edificios, accesos y espacios del Congreso. También puedes abrirlo en pantalla completa.</p><div class="info-grid"><div class="card" style="padding:24px"><div class="map-toolbar"><h2>Croquis ICEA</h2><button class="small-btn" onclick="openMap()">Abrir mapa interactivo</button></div><img class="croquis-main" src="assets/images/croquis-icea.png" alt="Croquis ICEA"><div class="map-legend">${legendItems()}</div></div><div class="card" style="padding:24px"><img class="info-img" src="assets/images/acceso-icea.jpeg" alt="Acceso principal ICEA"><h2>Sede</h2><p>Instituto de Ciencias Económico-Administrativas, UAEH. San Agustín Tlaxiaca, Hidalgo.</p><p><b>Registro:</b> vestíbulo principal.<br><b>Modalidad:</b> híbrida.<br><b>Fechas:</b> 23, 24 y 25 de septiembre de 2026.</p><h2>Operación rápida</h2><p>• Revisa tu horario en Programa.<br>• Guarda ponencias en Mi Agenda.<br>• Sube carteles en <b>carteles/</b>.<br>• Sube constancias por código en <b>constancias/</b>.</p></div></div>`; }
 function legendItems(){ const items=[['A','Economía','#d71857'],['B','Contaduría','#6d3ec8'],['C','Administración','#008a91'],['D','Comercio Exterior','#f28b18'],['E','Mercadotecnia','#1f5ab6'],['F','Turismo y Gastronomía','#d6469a'],['1','Audiovisual 1','#078a9a'],['2','Audiovisual 2','#078a9a']]; return items.map(i=>`<div class="legend-item"><span class="dot" style="--c:${i[2]}">${i[0]}</span>${i[1]}</div>`).join(''); }
 function showDetail(code){
   const t=DATA.trabajos.find(x=>x.codigo===code); if(!t)return;
@@ -148,6 +148,27 @@ function showEvent(id){
   $('#dialogContent').innerHTML=`<div class="dialog-body"><div class="dialog-hero" style="background:linear-gradient(135deg,${id==='foro-turismo'?'#4b247a':id==='panel-economia'?'#174f86':'#c8102e'},#111018)"><div><div class="section-kicker" style="color:#fff;opacity:.85">${e.title}</div><h2>${e.theme}</h2></div></div><p>${e.desc}</p><p><b>Fecha:</b> ${e.date}<br><b>Horario:</b> ${e.time}<br><b>Lugar:</b> ${e.place}</p><div class="bio-box"><h3>Semblanzas</h3><div class="people-list">${e.people.map(p=>`<div class="person-chip"><div class="avatar">${initials(p.name)}</div><div><b>${p.name}</b><span>${p.role}<br>${p.inst}</span></div></div>`).join('')}</div></div><div class="card-actions"><button class="small-btn ${saved(EVENT_KEY_PREFIX+id)?'saved':''}" onclick="toggleSave('${EVENT_KEY_PREFIX+id}');showEvent('${id}')">${saved(EVENT_KEY_PREFIX+id)?'★ Guardado':'☆ Agregar a Mi Agenda'}</button><button class="small-btn" onclick="go('info');closeDialog()">Ver croquis</button></div></div>`;
   $('#detailDialog').showModal();
 }
+
+function openMap(place='general'){
+  const sedes=[
+    ['A','Economía','Mesa temática / actividades académicas','#d71857'],
+    ['B','Contaduría','Sede académica de apoyo','#6d3ec8'],
+    ['C','Administración','Salas y actividades administrativas','#008a91'],
+    ['D','Comercio Exterior','Sede académica de apoyo','#f28b18'],
+    ['E','Mercadotecnia','Aulas y actividades del programa','#1f5ab6'],
+    ['F','Turismo y Gastronomía','Foro de Turismo y actividades relacionadas','#d6469a'],
+    ['1','Audiovisual 1','Actividades plenarias / sesiones especiales','#078a9a'],
+    ['2','Audiovisual 2','Actividades plenarias / sesiones especiales','#078a9a']
+  ];
+  $('#dialogContent').innerHTML=`<div class="dialog-body map-dialog-body"><div class="map-dialog-head"><div><div class="section-kicker">Croquis ICEA</div><h2>Mapa interactivo de sedes</h2><p>Consulta edificios, entrada, salida y espacios de referencia. Usa la leyenda para orientar a asistentes durante el Congreso.</p></div><button class="small-btn" onclick="go('programa');closeDialog()">Ver programa</button></div><div class="map-stage"><img src="assets/images/croquis-icea.png" alt="Croquis ICEA completo"><div class="map-help">Haz clic en una sede de la leyenda para identificar su uso.</div></div><div class="map-legend interactive">${sedes.map(s=>`<button class="legend-item" onclick="selectMapSite('${s[0]}','${s[1]}','${s[2]}','${s[3]}')"><span class="dot" style="--c:${s[3]}">${s[0]}</span>${s[1]}</button>`).join('')}</div><div id="mapSiteInfo" class="bio-box"><h3>Orientación rápida</h3><p>Entrada y salida están señaladas en la parte inferior del croquis. Para ubicar una ponencia, revisa primero la sala en el Programa y después consulta este mapa.</p></div></div>`;
+  $('#detailDialog').showModal();
+}
+function selectMapSite(code,name,desc,color){
+  const box=$('#mapSiteInfo'); if(!box) return;
+  box.style.borderLeftColor=color;
+  box.innerHTML=`<h3><span class="dot" style="--c:${color};display:inline-grid;margin-right:8px">${code}</span>${name}</h3><p>${desc}</p><div class="card-actions"><button class="small-btn" onclick="filters.q='${name}';go('programa');closeDialog()">Ver actividades relacionadas</button></div>`;
+}
+
 function closeDialog(){ $('#detailDialog').close(); }
 function getAgenda(){ try{return JSON.parse(localStorage.getItem(AGENDA_KEY)||'[]')}catch{return []} }
 function saved(code){ return getAgenda().includes(code); }

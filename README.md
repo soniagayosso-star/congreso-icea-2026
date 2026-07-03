@@ -1,6 +1,6 @@
 # 11° Congreso Internacional ICEA 2026
 
-Plataforma web del Congreso Internacional de Investigación en Ciencias Económico-Administrativas.
+Plataforma web del programa académico del Congreso ICEA 2026.
 
 ## Estructura
 
@@ -9,21 +9,35 @@ index.html
 styles.css
 app.js
 data/programa.json
-assets/logos/logo-icea-uaeh.png
-assets/images/acceso-icea.jpeg
-assets/images/campus-jardin.png
-assets/images/banner-congreso.jpg
-assets/images/croquis-icea.png
+assets/images/
+assets/logos/
 carteles/
 constancias/ponencias/
 constancias/carteles/
 ```
 
-## Cómo nombrar carteles
+## Cómo subir a GitHub
 
-Los carteles deben subirse en PDF dentro de la carpeta `carteles/` usando el código exacto del trabajo.
+Sube **todo el contenido** de esta carpeta a la raíz del repositorio, no la carpeta completa dentro de otra carpeta.
 
-Ejemplos:
+Debe verse así en GitHub:
+
+```text
+README.md
+index.html
+styles.css
+app.js
+data/
+assets/
+carteles/
+constancias/
+```
+
+## Nombres de archivos para evitar errores
+
+### Carteles
+
+Los carteles se nombran exactamente con el código del trabajo:
 
 ```text
 carteles/CAR-003.pdf
@@ -31,80 +45,59 @@ carteles/CAR-006.pdf
 carteles/CAR-014.pdf
 ```
 
-Reglas:
+### Constancias de ponencias
 
-- Usa el código exacto que aparece en el programa.
-- Usa mayúsculas en `CAR`.
-- No uses espacios, acentos ni paréntesis.
-- Formato recomendado: PDF.
-
-## Cómo nombrar constancias
-
-Las constancias de ponencias van en:
+Las constancias de ponencia también se nombran con el código:
 
 ```text
-constancias/ponencias/
+constancias/ponencias/PON-001.pdf
+constancias/ponencias/PON-002.pdf
+constancias/ponencias/PON-007.pdf
 ```
 
-Las constancias de carteles van en:
+### Constancias de carteles
 
 ```text
-constancias/carteles/
+constancias/carteles/CAR-003.pdf
+constancias/carteles/CAR-006.pdf
+constancias/carteles/CAR-014.pdf
 ```
 
-Nombre recomendado:
+## Regla de oro
 
-```text
-Nombre_Apellido.pdf
-```
+Usar siempre:
 
-Ejemplos:
+- Código exacto del trabajo.
+- Mayúsculas como aparece en el programa.
+- Guion medio `-`.
+- Extensión `.pdf` en minúsculas.
 
-```text
-constancias/ponencias/Maria_Concepcion_Garcia_Perez.pdf
-constancias/ponencias/Melissa_Areli_Lucio_Deanda.pdf
-constancias/carteles/Juan_Jesus_Solis_Munoz.pdf
-```
+Evitar:
 
-Reglas para evitar errores:
-
-- Sin acentos.
-- Sin espacios.
-- Sin comas.
-- Sin paréntesis.
-- Usa guion bajo `_`.
-- Mantén el mismo nombre que aparece en `data/programa.json` convertido a formato seguro.
+- Espacios.
+- Acentos.
+- Paréntesis.
+- Nombres de personas en el archivo.
 
 ## Semblanzas
 
-Las semblanzas se muestran en pantalla, no como descarga.
+Las semblanzas se consultan en pantalla, no se descargan.
 
-Dónde se consideran semblanzas:
-
-1. En cada ponencia, para la persona que presenta.
-2. En la Conferencia Magistral.
-3. En ponentes del Foro de Turismo.
-4. En panelistas del Panel de Economía.
-
-Para agregar semblanza por ponencia, en `data/programa.json` añade el campo:
+Se agregan en `data/programa.json`, dentro de cada trabajo, usando el campo:
 
 ```json
-"semblanza": "Texto breve de la trayectoria de la persona ponente."
+"semblanza": "Texto de la semblanza de quien presenta la ponencia."
 ```
 
-Si no hay semblanza, la plataforma muestra un texto temporal de “Semblanza pendiente”.
+Para los eventos destacados —Conferencia Magistral, Foro de Turismo y Panel de Economía— las semblanzas se editan en `app.js`, en el bloque `eventDetails`.
 
-## Publicación en Netlify
+## Croquis
 
-Este proyecto no requiere build.
-
-En Netlify deja:
+El croquis debe estar en:
 
 ```text
-Branch: main
-Base directory: vacío
-Build command: vacío
-Publish directory: vacío
+assets/images/croquis-icea.png
 ```
 
-Después de subir cambios a GitHub, Netlify publica automáticamente.
+Si no aparece en Netlify, revisar que la carpeta `assets/images/` sí se haya subido completa.
+
