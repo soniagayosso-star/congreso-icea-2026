@@ -101,3 +101,8 @@ assets/images/croquis-icea.png
 
 Si no aparece en Netlify, revisar que la carpeta `assets/images/` sí se haya subido completa.
 
+
+
+## Corrección de croquis
+
+El croquis quedó incrustado directamente en `app.js` para evitar errores de ruta en Netlify. Aun así, se conserva el archivo `assets/images/croquis-icea.png` como respaldo.
