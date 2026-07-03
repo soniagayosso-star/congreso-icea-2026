@@ -2,53 +2,70 @@
 
 Sitio oficial del programa académico del Congreso ICEA.
 
-## Archivos principales
+## Estructura
 
-- `index.html`: entrada principal del sitio.
-- `styles.css`: diseño visual.
-- `app.js`: navegación, filtros, buscador y Mi Agenda.
-- `data/programa.json`: datos del programa, carteles y constancias.
-- `assets/`: logos e imágenes institucionales.
-- `carteles/`: subir aquí los carteles en PDF. Recomendado: `CAR-003.pdf`.
-- `constancias/ponencias/`: constancias de ponencias.
-- `constancias/carteles/`: constancias de carteles.
+```text
+index.html
+styles.css
+app.js
+data/programa.json
+assets/images/
+assets/logos/
+carteles/
+constancias/ponencias/
+constancias/carteles/
+```
 
-## Publicación en Netlify
+## Carteles
 
-Como es HTML/CSS/JS puro:
+Nombra cada cartel con el código exacto del trabajo:
 
-- Build command: vacío
-- Publish directory: vacío
-- Branch: main
+```text
+carteles/CAR-003.pdf
+carteles/CAR-006.pdf
+carteles/CAR-095.pdf
+```
 
-## Mi Agenda
+Reglas: sin acentos, sin espacios, sin paréntesis. Usa el código en mayúsculas.
 
-Funciona con LocalStorage del navegador. Cada asistente puede guardar actividades sin crear cuenta.
+## Constancias
 
+Las constancias se enlazan desde `data/programa.json`, en el campo `pdf` de cada persona.
 
-## Cómo nombrar archivos para evitar errores
+Recomendación para nombres de archivo:
 
-### Carteles
-Sube cada cartel a la carpeta `carteles/` usando exactamente el código del trabajo:
+```text
+constancias/ponencias/Nombre_Apellido.pdf
+constancias/carteles/Nombre_Apellido.pdf
+```
 
-- `carteles/CAR-003.pdf`
-- `carteles/CAR-006.pdf`
-- `carteles/CAR-095.pdf`
+Ejemplo:
 
-No uses acentos, espacios, paréntesis ni nombres largos. El dashboard ya busca los carteles con la ruta `carteles/CAR-XXX.pdf`.
+```text
+constancias/ponencias/Aide_Maricel_Carrizal_Alonso.pdf
+constancias/carteles/Juan_Jesus_Solis_Munoz.pdf
+```
 
-### Constancias
-Sube las constancias a la carpeta correspondiente:
+Reglas seguras:
 
-- Ponencias: `constancias/ponencias/Nombre_Apellido.pdf`
-- Carteles: `constancias/carteles/Nombre_Apellido.pdf`
+- Sin acentos.
+- Sin ñ.
+- Sin espacios.
+- Sin comas.
+- Sin paréntesis.
+- Usar guion bajo `_`.
+- Mantener exactamente el mismo nombre que aparece en `data/programa.json`.
 
-El nombre debe coincidir con la ruta que aparece en `data/programa.json`, dentro del bloque `constancias`. Para evitar errores, usa guion bajo `_`, sin espacios y sin acentos.
+## Mejoras incluidas en etapa 3
 
-Ejemplos:
+- Hero con fotografía del acceso del ICEA, menos pasto y más edificio.
+- Búsqueda de constancias más estable y ligera.
+- Búsqueda de programa con foco conservado para escribir corrido.
+- Explorador visual de mesas temáticas por color.
+- Modo asistente en la página principal.
+- Tarjetas por mesa con identidad cromática.
+- Cuenta regresiva con días, horas, minutos y segundos.
 
-- `constancias/ponencias/Maria_Concepcion_Garcia_Perez.pdf`
-- `constancias/ponencias/Melissa_Areli_Lucio_Deanda.pdf`
-- `constancias/carteles/Valeria_Ortiz_Hernandez.pdf`
+## Publicación
 
-Recomendación operativa: antes de subir todas, prueba con 2 constancias y 2 carteles. Si abren bien desde Netlify, sube el resto.
+Subir todos los archivos al repositorio GitHub. Netlify publicará automáticamente si está conectado al repositorio.
