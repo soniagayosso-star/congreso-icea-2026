@@ -1,6 +1,6 @@
 # 11° Congreso Internacional ICEA 2026
 
-Sitio oficial del programa académico del Congreso ICEA.
+Plataforma web del Congreso Internacional de Investigación en Ciencias Económico-Administrativas.
 
 ## Estructura
 
@@ -9,63 +9,102 @@ index.html
 styles.css
 app.js
 data/programa.json
-assets/images/
-assets/logos/
+assets/logos/logo-icea-uaeh.png
+assets/images/acceso-icea.jpeg
+assets/images/campus-jardin.png
+assets/images/banner-congreso.jpg
+assets/images/croquis-icea.png
 carteles/
 constancias/ponencias/
 constancias/carteles/
 ```
 
-## Carteles
+## Cómo nombrar carteles
 
-Nombra cada cartel con el código exacto del trabajo:
+Los carteles deben subirse en PDF dentro de la carpeta `carteles/` usando el código exacto del trabajo.
+
+Ejemplos:
 
 ```text
 carteles/CAR-003.pdf
 carteles/CAR-006.pdf
-carteles/CAR-095.pdf
+carteles/CAR-014.pdf
 ```
 
-Reglas: sin acentos, sin espacios, sin paréntesis. Usa el código en mayúsculas.
+Reglas:
 
-## Constancias
+- Usa el código exacto que aparece en el programa.
+- Usa mayúsculas en `CAR`.
+- No uses espacios, acentos ni paréntesis.
+- Formato recomendado: PDF.
 
-Las constancias se enlazan desde `data/programa.json`, en el campo `pdf` de cada persona.
+## Cómo nombrar constancias
 
-Recomendación para nombres de archivo:
+Las constancias de ponencias van en:
 
 ```text
-constancias/ponencias/Nombre_Apellido.pdf
-constancias/carteles/Nombre_Apellido.pdf
+constancias/ponencias/
 ```
 
-Ejemplo:
+Las constancias de carteles van en:
 
 ```text
-constancias/ponencias/Aide_Maricel_Carrizal_Alonso.pdf
+constancias/carteles/
+```
+
+Nombre recomendado:
+
+```text
+Nombre_Apellido.pdf
+```
+
+Ejemplos:
+
+```text
+constancias/ponencias/Maria_Concepcion_Garcia_Perez.pdf
+constancias/ponencias/Melissa_Areli_Lucio_Deanda.pdf
 constancias/carteles/Juan_Jesus_Solis_Munoz.pdf
 ```
 
-Reglas seguras:
+Reglas para evitar errores:
 
 - Sin acentos.
-- Sin ñ.
 - Sin espacios.
 - Sin comas.
 - Sin paréntesis.
-- Usar guion bajo `_`.
-- Mantener exactamente el mismo nombre que aparece en `data/programa.json`.
+- Usa guion bajo `_`.
+- Mantén el mismo nombre que aparece en `data/programa.json` convertido a formato seguro.
 
-## Mejoras incluidas en etapa 3
+## Semblanzas
 
-- Hero con fotografía del acceso del ICEA, menos pasto y más edificio.
-- Búsqueda de constancias más estable y ligera.
-- Búsqueda de programa con foco conservado para escribir corrido.
-- Explorador visual de mesas temáticas por color.
-- Modo asistente en la página principal.
-- Tarjetas por mesa con identidad cromática.
-- Cuenta regresiva con días, horas, minutos y segundos.
+Las semblanzas se muestran en pantalla, no como descarga.
 
-## Publicación
+Dónde se consideran semblanzas:
 
-Subir todos los archivos al repositorio GitHub. Netlify publicará automáticamente si está conectado al repositorio.
+1. En cada ponencia, para la persona que presenta.
+2. En la Conferencia Magistral.
+3. En ponentes del Foro de Turismo.
+4. En panelistas del Panel de Economía.
+
+Para agregar semblanza por ponencia, en `data/programa.json` añade el campo:
+
+```json
+"semblanza": "Texto breve de la trayectoria de la persona ponente."
+```
+
+Si no hay semblanza, la plataforma muestra un texto temporal de “Semblanza pendiente”.
+
+## Publicación en Netlify
+
+Este proyecto no requiere build.
+
+En Netlify deja:
+
+```text
+Branch: main
+Base directory: vacío
+Build command: vacío
+Publish directory: vacío
+```
+
+Después de subir cambios a GitHub, Netlify publica automáticamente.
